@@ -1,18 +1,76 @@
 <html>
 	<head>
 		<script src="js/mail-generator.js"></script>
+    <script src="components/react/react.js"></script>
+    <script src="components/react/JSXTransformer.js"></script>
+    <script src="http://fb.me/react-0.13.3.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.13.3.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+    <title>Geemail</title>
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
-    </script>
+      var messageQueue;
+      function messageViewGenerator() {if (window.geemails.length == 0) {window.geemails.getNewMessage()}
+      else {while(window.geemails.length >= 1) {messageQueue = window.geemails.pop(); document.getElementById("list").innerHTML = messageQueue}
+      setInterval(messageViewGenerator(), 500)
+      }
+
+
+  </script>
 	</head>
 	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
+		<div class="pure-g-r content" id="layout">
+    <div class="pure-u" id="nav">
+        <a href="#nav" class="nav-menu-button">Menu</a>
+
+        <div class="nav-inner">
+            <a class="pure-button primary-button" href="#">Compose</a>
+
+            <div class="pure-menu pure-menu-open">
+                <ul>
+                    <li><a href="#">Inbox <span class="email-count">(inboxcounter)</span></a></li>
+                    <li><a href="#">Important</a></li>
+                    <li><a href="#">Sent</a></li>
+                    <li><a href="#">Drafts</a></li>
+                    <li><a href="#">Trash</a></li>
+                    <li class="pure-menu-heading">Labels</li>
+                    <li><a href="#"><span class="email-label-personal"></span>Personal</a></li>
+                    <li><a href="#"><span class="email-label-work"></span>Work</a></li>
+                    <li><a href="#"><span class="email-label-travel"></span>Travel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+            <div class="pure-u" id="list">
+            </div>
+    <div class="pure-u" id="main">
+        <div class="content">
+            <div class="email-content pure-g">
+                <div class="email-content-header pure-g">
+                    <div class="pure-u-1-2">
+                        <h1 class="email-content-subject">this.messageQueue.subject</h1>
+                        <p class="email-content-subtitle">
+                            From <a>this.messageQueue.sender</a> at <span>this.messageQueue.date</span>
+                        </p>
+                    </div>
+
+                    <div class="pure-u-1-2 email-content-controls">
+                        <a class="pure-button secondary-button">Reply</a>
+                        <a class="pure-button secondary-button">Forward</a>
+                        <a class="pure-button secondary-button">Move to</a>
+                    </div>
+                </div>
+
+                <div class="email-content-body pure-u-1">
+                    <p href="messagebody">
+                      this.messageQueue.body
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 	</body>
 </html>

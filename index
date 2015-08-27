@@ -1,0 +1,177 @@
+<html>
+	<head>
+        <script src="js/mail-generator.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <title>Geemail</title>
+        <script> window.onload = function(){
+        var i = 0, viewMessageMenuItem = document.querySelector('tbody'), inboxCounter = document.getElementById('inboxcounter') , cake, messageBody = document.getElementById('messagebody'), asciiart = {
+    "11": ["                     -$-                ", "                    .H##H,              ", "                   +######+             ", "                .+#########H.           ", "              -$############@.          ", "            =H###############@  -X:     ", "          .$##################:  @#@-   ", "     ,;  .M###################;  H###;  ", "   ;@#:  @###################@  ,#####: ", " -M###.  M#################@.  ;######H ", " M####-  +###############$   =@#######X ", " H####$   -M###########+   :#########M, ", "  /####X-   =########%   :M########@/.  ", "    ,;%H@X;   .$###X   :##MM@%+;:-      ", "                 ..                     ", "  -/;:-,.              ,,-==+M########H ", " -##################@HX%+%$%%+:,,    ", "    .-/H%%+%$H@###############M@+=:/+:", "/XHX%:#####MH%=    ,---:;;;;/%XHM,:###$", "$@#MX %+;-                           .  "],
+    "10": ["+@##########M/             :@#########@/", "##############$;H#######@;+#############", "###############M########################", "##############X,-/++/+%+/,%#############", "############M$:           -X############", "##########H;.      ,--.     =X##########", ":X######M;     -$H@M##MH%:    :H#######@", "  =%#M+=,   ,+@#######M###H:    -=/M#% ", "  %M##@+   .X##$, ./+- ./###;    +M##% ", "  %####M.  /###=         @##M.   X###% ", "  %####M.  ;M##H:.     =$###X.   $###% ", "  %####@.   /####M$-./@#####:    %###% ", "  %H#M/,     /H###########@:     ./M#% ", " ;$H##@@H:    .;$HM#MMMH$;,   ./H@M##M$=", "X#########%.      ..,,.     .;@#########", "###########H+:.           ./@###########", "##############/ ./%%+/.-M#############", "##############H$@#######@@##############", "##############X%########M$M#############", "+M##########H:            .$##########X="],
+    "13": ["         ,=;%$%$X%%;/%%;=,         ", "     ,/$$+:-                -:+$$/,     ", "   :X$=                          =$X:   ", " ;M%.                              .%M; ", "+#/                                  /#+", "##                                    M#", "H#,                     =;+/;,       ,#X", ".HM-       :@X+%H:   .%M%- .M#.     -M@.", "  /#%.     @#-  ,H@--MH, .;@$-    .%#+  ", "   .$M;    .+@X;, MM#@:/$X;.     ;M$,   ", "     =@H,     ,:+%H#M%;-       ,H@=     ", "      .$#;        -#H         =#$       ", "        %#;        #M        ;#%        ", "         H#-       ##       -#H         ", "         ;#+       ##       +#;         ", "          ;H+;;;;;;HH;;;;;;+H/          ", "           =H#@HHHHHHHHHH@#H=           ", "           =@#H%%%%$HH@#@=           ", "           =@#X%%%%$M###@=           ", "               =+%XHHX%+=               "],
+    "12": ["       #+ @      # #              M#@   ", " .    .X  X.%##@;# #   +@#######X. @#%  ", "   ,==.   ,######M+  -#####%M####M-    #", "  :H##M%:=##+ .M##M,;#####/+#######% ,M#", " .M########=  =@#@.=#####M=M#######=  X#", " :@@MMM##M.  -##M.,#######M#######. =  M", "             @##..###:.    .H####. @@ X,", "   ############: ###,/####;  /##= @#. M ", "           ,M## ;##,@#M;/M#M  @# X#% X# ", ".%=   ######M## ##.M#:   ./#M ,M #M ,#$ ", "##/         $## #+;#: #### ;#/ M M- @# :", "#+ #M@MM###M-;M #:$#-##$H# .#X @ + $#. #", "      ######/.: #%=# M#:MM./#.-#  @#: H#", "+,.=   @###: /@ %#,@  ##@X #,-#@.##% .@#", "#####+;/##/ @##  @#,+       /#M    . X, ", "   ;###M#@ M###H .#M-     ,##M  ;@@; ###", "   .M#M##H ;####X ,@#######M/ -M###$  -H", "    .M###%  X####H  .@@MM@;  ;@#M@      ", "      H#M    /@####/      ,++.  / ==-,  ", "               ,=/:, .+X@MMH@#H  #####$="],
+    "15": ["      .-+$H###MM@MMMMM##@$+-,. ....", "-@$+%$+%HX+--..  .  . .,:X$/+/++$#:", "-#MXH$=                      $HXH#:", " .--,:#+   ,+$HMX =@@X%, . .X#:,,, ", "     =#@$H :####H =####;,M%$#X     ", "     X###$ $####X =####H %###X     ", "    ;###X /###@$: ,+HM##H.+###;    ", "   :###;,X##%=;%H@H$;-;M#@-;###/   ", "  ,M##;.@##;-H#######M=.M##-:###-  ", "  ;##M ;##X @###H-=@###.;##X H##;  ", "  ;##M./##X.@###H:/M###-=##X X##;  ", "  -###;,M##:,@########+-H##; @##-  ", "   %##M==@##%==%HMH%::/M##+.X##+   ", "    %###/./###X+: -+$M##M=,X##+    ", "     X###X X####H +#####% @##H     ", "     :###H %####H +#####; X##;     ", "     /#$.  -HM##H /###@+.  +#$. .  ", "/HX%$X:      .,-, .-,.      =XX$H@-", "/#H+/+%+/+;=.          .=/%;;/;;+#+", " ..  .,-:XM#MM@@@@@@H@@M#@+=,.   ,,"],
+    "14": ["      X MM X       ", "      X MM X       ", "      X MM X       ", "      X MM X       ", "      + HX +       ", "    ,=$$XX%/-      ", "  =X#########@%-   ", " ;##############=  ", "-###############M, ", ";##@@@######M@###= ", ".+:;+:=H##$=:/:;H. ", "- +###- ## :###,,; ", "+@:/%;-H##H==/::H; ", " /#@/-=+$$%::+H#$  ", " $#%-,      ,.:##- ", "-@/            =X%.", "%H=             -$;", " =HH,         .%M; ", "  /MM/       :@M/. ", "   .:XX,   -$H:.   "],
+    "1": ["              .,-:;//;:=,               ", "          . :H@@@MM@M#H/.,+%;,          ", "       ,/X+ +M@@M@MM%=,-%HMMM@X/,       ", "     -+@MM; $M@@MH+-,;XMMMM@MMMM@+-     ", "    ;@M@@M- XM@X;. -+XXXXXHHH@M@M#@/.   ", "  ,%MM@@MH ,@%=            .---=-=:=,.  ", "  =@#@@@MX .,              -%HX$$%%+;  ", " =-./@M@M$                  .;@MMMM@MM: ", " X@/ -$MM/                    .+MM@@@M$ ", ",@M@H: :@:                    . =X#@@@@-", ",@@@MMX, .                    /H- ;@M@M=", ".H@@@@M@+,                    %MM+..%#$.", " /MMMM@MMH/.                  XM@MH; =; ", "  /%+%$XHH@$=              , .H@@@@MX,  ", "   .=--------.           -%H.,@@@@@MX,  ", "   .%MM@@@HHHXX$$$%+- .:$MMX =M@@MM%.   ", "     =XMMM@MM@MM#H;,-+HMM@M+ /MMMX=     ", "       =%@M@M#@$-.=$@MM@@@M; %M%=       ", "         ,:+$+-,/H#MMMMMMM@= =,         ", "               =++%%+/:-.             "],
+    "3": ["            .+                          ", "             /M;                        ", "              H#@:              ;,      ", "              -###H-          -@/       ", "               %####$.  -;  .%#X        ", "                M#####+;#H :M#M.        ", "..          .+/;%#########X###-         ", " -/%H%+;-,    +##############/          ", "    .:$M###MH$%+############X  ,--=;-   ", "        -/H#####################H+=.    ", "           .+#################X.        ", "         =%M####################H;.     ", "            /@###############+;;/%;,   ", "         -%###################$.        ", "       ;H######################M=       ", "    ,%#####MH$%;+#####M###-/@####%      ", "  :$H%+;=-      -####X.,H#   -+M##@-    ", " .              ,###;    ;      =$##+   ", "                .#H,               :XH, ", "                 +                   .;-"],
+    "2": ["            ,:/+/-                      ", "            /M/              .,-=;//;-  ", "       .:/= ;MH/,    ,=/+%$XH@MM#@:     ", "      -$##@+$###@H@MMM#######H:.    -/H#", " .,H@H@ X######@ -H#####@+-     -+H###@X", "  .,@##H;      +XM##M/,     =%@###@X;-  ", "X%-  :M##########$.    .:%M###@%:       ", "M##H,   +H@@@$/-.  ,;$M###@%,          -", "M####M=,,---,.-%H####M$:          ,+@##", "@##################@/.         :%H##@$- ", "M###############H,         ;HM##M$=     ", "#################.    .=$M##M$=         ", "################H..;XM##M$=          .:+", "M###################@%=           =+@MH%", "@################M/.          =+H#X%=   ", "=+M##############M,       -/X#X+;.      ", "  .;XM##########H=    ,/X#H+:,          ", "     .=+HM######M+/+HM@+=.              ", "         ,:/%XM####H/.                  ", "              ,.:=-.                    "],
+    "5": ["                 =/;;/-                 ", "                +:    //                ", "               /;      /;               ", "              -X        H.              ", ".//;;;:;;-,   X=        :+   .-;:=;:;%;.", "M-       ,=;;;#:,      ,:#;;:=,       ,@", ":%           :%.=/++++/=.$=           %=", " ,%;         %/:+/;,,/++:+/         ;+. ", "   ,+/.    ,;@+,        ,%H;,    ,/+,   ", "      ;+;;/= @.  .H##X   -X :///+;      ", "      ;+=;;;.@,  .XM@$.  =X.//;=%/.     ", "   ,;:      :@%=        =$H:     .+%-   ", " ,%=         %;-///==///-//         =%, ", ";+           :%-;;;:;;;;-X-           +:", "@-      .-;;;;M-        =M/;;;-.      -X", " :;;::;;-.    %-        :+    ,-;;-;:== ", "              ,X        H.              ", "               ;/      %=               ", "                //    +;                ", "                 ,////,                 "],
+    "4": ["                   ;=         ", "                   /=         ", "                   ;=         ", "                   /=         ", "                   ;=         ", "                   /=         ", "                   ;=         ", "                   /=         ", "            ,--==-:$;         ", "        ,/$@#######@X+-       ", "     ./@###############X=     ", "    /M#####X+/;;;;+H#####$.   ", "   %####M/;+H@XX@@%;;@####@,  ", "  +####H=+##$,--,=M#X-%####@. ", " -####X,X@HHXH##MXHXXH-+####$ ", " X###@.X/$M$:####$=@X/X,X####-", ".####:+$:##@:####$:##H/X=####%", "-%$%,+==%$+-$+:$;-$$%-+,/$%+", "-/+%X$XX$$$$$$$%$$$%$X$X$%+/-", "                              "],
+    "7": ["           .-;+$XHHHHHHX$+;-.           ", "        ,;X@@X%/;=----=:/%X@@X/,        ", "      =$@@%=.              .=+H@X:      ", "    -XMX:                      =XMX=    ", "   /@@:                          =H@+   ", "  %@X,                            .$@$  ", " +@X.                               $@% ", "-@@,                                .@@=", "%@%                                  +@$", "H@:                                  :@H", "H@:         :HHHHHHHHHHHHHHHHHHX,    =@H", "%@%         ;@M@@@@@@@@@@@@@@@@@H-   +@$", "=@@,        :@@@@@@@@@@@@@@@@@@@@@= .@@:", " +@X        :@@@@@@@@@@@@@@@M@@@@@@:%@% ", "  $@$,      ;@@@@@@@@@@@@@@@@@M@@@@@@$. ", "   +@@HHHHHHH@@@@@@@@@@@@@@@@@@@@@@@+   ", "    =X@@@@@@@@@@@@@@@@@@@@@@@@@@@@X=    ", "      :$@@@@@@@@@@@@@@@@@@@M@@@@$:      ", "        ,;$@@@@@@@@@@@@@@@@@@X/-        ", "           .-;+$XXHHHHHX$+;-.           "],
+    "6": ["             =+$HM####@H%;,             ", "          /H###############M$,          ", "          ,@################+           ", "           .H##############+            ", "             X############/             ", "              $##########/              ", "               %########/               ", "                /X/;;+X/                ", "                                        ", "                 -XHHX-                 ", "                ,######,                ", "#############X  .M####M.  X#############", "##############-   -//-   -##############", "X##############%,      ,+##############X", "-##############X        X##############-", " %############%          %############% ", "  %##########;            ;##########%  ", "   ;#######M=              =M#######;   ", "    .+M###@,                ,@###M+.    ", "       :XH.                  .HX:       "],
+    "9": ["                                     :X-", "                                  :X### ", "                                ;@####@ ", "                              ;M######X ", "                            -@########$ ", "                          .$##########@ ", "                         =M############-", "                        +##############$", "                      .H############$=. ", "         ,/:         ,M##########M;.    ", "      -+@###;       =##########M;       ", "   =%M#######;     :#########M/         ", "-$M###########;   :#########/           ", " ,;X###########; =########$.            ", "     ;H#########+#######M=              ", "       ,+##############+                ", "          /M#########@-                 ", "            ;M######%                   ", "              +####:                    ", "               ,$M-                     "],
+    "8": ["                          .,---.        ", "                        ,/XM#MMMX;,     ", "                      -%##########M%,   ", "                     -@######%  $###@=  ", "      .,--,         -H#######$   $###M: ", "   ,;$M###MMX;     .;##########$;HM###X=", " ,/@##########H=      ;################+", "-+#############M/,      %##############+", "%M###############=      /##############:", "H################      .M#############;.", "@###############M      ,@###########M:. ", "X################,      -$=X#######@:   ", "/@##################%-     +######$-    ", ".;##################X     .X#####+,     ", " .;H################/     -X####+.      ", "   ,;X##############,       .MM/        ", "      ,:+$H@M#######M#$-    .$$=        ", "           .,-=;+$@###X:    ;/=.        ", "                  .,/X$;   .::,         ", "                      .,    ..          "]
+};
+
+        cake = {
+
+        init: function() {
+            cake.menudiv = document.getElementById('menutext');
+            cake.messagediv = document.getElementById('messagetext');
+            cake.drawMenuBorder();
+            cake.drawMessageBorder();
+            },
+
+            drawMenuBorder: function() {
+                var verttext = '';
+                    for (x = 0; x < 30; x++) {
+                    verttext += '|<br />';
+                }
+                var horiztext = '';
+                    for (x = 0; x < 47; x++) {
+                    horiztext += '-';
+                }
+                var left = document.getElementById('menuleft');
+                left.innerHTML = verttext;
+                var top = document.getElementById('menutop');
+                top.innerHTML = horiztext;
+                var right = document.getElementById('menuright');
+                right.innerHTML = verttext;
+                var bottom = document.getElementById('menubottom');
+                bottom.innerHTML = horiztext;
+            },
+
+            drawMessageBorder: function() {
+                var verttext = '';
+                    for (x = 0; x < 16; x++) {
+                    verttext += '|<br />';
+                }
+                var horiztext = '';
+                    for (x = 0; x < 47; x++) {
+                    horiztext += '-';
+                }
+                var left = document.getElementById('messageleft');
+                left.innerHTML = verttext;
+                var top = document.getElementById('messagetop');
+                top.innerHTML = horiztext;
+                var right = document.getElementById('messageright');
+                right.innerHTML = verttext;
+                var bottom = document.getElementById('messagebottom');
+                bottom.innerHTML = horiztext;
+            },
+
+            drawPictureBorder: function() {},
+            initBlinker: function() {
+                if (!cake.menuBlinker) {
+                cake.menuBlinker = document.createElement("span");
+                document.getElementById('menutext').appendChild(cake.menuBlinker);
+                cake.blink(cake.menuBlinker);
+                }
+                if (!cake.messageBlinker) {
+                cake.messageBlinker = document.createElement("span");
+                cake.messageBlinker.id = "messageBlinker";
+                document.getElementById('messagetext').appendChild(cake.messageBlinker);
+                cake.blink(cake.messageBlinker);
+                }
+            },
+            blink: function(blinker) {
+                nextChar = blinker.innerHTML;
+                var newChar = '_';
+                if (nextChar == '_')
+                newChar = '&nbsp;';
+                 if (nextChar == '&nbsp;')
+                newChar = '_';
+                blinker.innerHTML = newChar;
+                if (cake.blinkerTime != 300) {
+                alert(cake.blinkerTime);
+                cake.smash();
+                }
+                setTimeout(function() {
+                cake.blink(blinker)
+                }, cake.blinkerTime);
+            },
+
+            setPicture: function(id) {
+                var picture = document.getElementById("picturetext");
+                picture.innerHTML = '';
+                var curart = asciiart['' + id + ''];
+                if (curart) {
+                    for (var line in curart) {
+                var node = document.createElement("div");
+                var curline = curart[line];
+                curline = curline.replace(/</g, "&lt;");
+                curline = curline.replace(/>/g, "&gt;");
+                curline = curline.replace(/ /g, "&nbsp;");
+                node.innerHTML = curline;
+                picture.appendChild(node);
+                    }
+                }
+             }
+        };
+
+            function displayMessage() {
+                messageBody.innerHTML = this.body;
+            };
+
+            function loadMessages() { 
+                if (window.geemails.length === i)  {
+                    
+                    window.geemails.push(getNewMessage());
+
+                    inboxCounter.innerHTML = 'Inbox('+i+')';
+
+                } else {
+
+                    window.geemails[i].displayMessage = displayMessage;
+
+                    viewMessageMenuItem.innerHTML+= '<tr><td>'+window.geemails[i].date+'</td><td>'+window.geemails[i].sender+'</td><td onclick="window.geemails['+i+'].displayMessage()">'+window.geemails[i].subject+'</td></tr>';
+
+                    //var buttonMessageMenuItem = document.getElementById()
+
+                    ++i;
+
+                    inboxCounter.innerHTML = 'Inbox('+i+')';
+                }
+            }
+
+            cake.init()
+
+            window.setInterval (loadMessages, 1000)
+        }
+        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
+        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+        </script>
+    </head>
+	<body>
+        <div id="menu">
+            <div id="menuleft"></div>
+            <div id="menutop"></div>
+            <div id="menuright"></div>
+            <div id="menubottom"></div>
+            <div id="menutext"><table><thead><tr><th>Date</th><th>Sender</th><th>Subject</th></tr></thead><tbody></tbody></div>
+        </div>
+        <div id="message">
+            <div id="messageleft"></div>
+            <div id="messagetop"></div>
+            <div id="messageright"></div>
+            <div id="messagebottom"></div>
+            <div id="messagetext"><button id="inboxcounter">Inbox(0)</button><button id="reply">Reply</button><button id="delete">Delete</button><button id="cake">Cake</button><p id="messagebody">Message goes here</p></div>
+        </div>
+        <div id="picture">
+            <div id="pictureleft"></div>
+            <div id="picturetop"></div>
+            <div id="pictureright"></div>
+            <div id="picturebottom"></div>
+            <div id="picturetext"></div>
+        </div>
+    </body>
+</html>

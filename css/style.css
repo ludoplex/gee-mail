@@ -6,6 +6,13 @@ body {
     line-height: 1.60em;
     background-color: black;
 }
+tbody div{
+    overflow-y:scroll;
+    height:588px;
+    width:330px;
+    color: yellow;
+    background-color: black;
+}
 #menu {
     position: absolute;
     left: 2em;
@@ -45,7 +52,7 @@ body {
     top: 0em;
 }
 #menubottom {
-    bottom: 0em;
+    bottom: -1em;
 }
 #message {
     position: absolute;
@@ -87,7 +94,7 @@ body {
     top: 0em;
 }
 #messagebottom {
-    bottom: 0em;
+    bottom: -6em;
 }
 #picture {
     position: absolute;

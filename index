@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <title>Geemail</title>
         <script> window.onload = function(){
-        var i = 0, viewMessageMenuItem = document.querySelector('tbody'), inboxCounter = document.getElementById('inboxcounter') , cake, messageBody = document.getElementById('messagebody'), asciiart = {
+        var i = 0, viewMessageMenuItem = document.getElementById('menuitems'), inboxCounter = document.getElementById('inboxcounter') , cake, messageBody = document.getElementById('messagebody'), asciiart = {
     "11": ["                     -$-                ", "                    .H##H,              ", "                   +######+             ", "                .+#########H.           ", "              -$############@.          ", "            =H###############@  -X:     ", "          .$##################:  @#@-   ", "     ,;  .M###################;  H###;  ", "   ;@#:  @###################@  ,#####: ", " -M###.  M#################@.  ;######H ", " M####-  +###############$   =@#######X ", " H####$   -M###########+   :#########M, ", "  /####X-   =########%   :M########@/.  ", "    ,;%H@X;   .$###X   :##MM@%+;:-      ", "                 ..                     ", "  -/;:-,.              ,,-==+M########H ", " -##################@HX%+%$%%+:,,    ", "    .-/H%%+%$H@###############M@+=:/+:", "/XHX%:#####MH%=    ,---:;;;;/%XHM,:###$", "$@#MX %+;-                           .  "],
     "10": ["+@##########M/             :@#########@/", "##############$;H#######@;+#############", "###############M########################", "##############X,-/++/+%+/,%#############", "############M$:           -X############", "##########H;.      ,--.     =X##########", ":X######M;     -$H@M##MH%:    :H#######@", "  =%#M+=,   ,+@#######M###H:    -=/M#% ", "  %M##@+   .X##$, ./+- ./###;    +M##% ", "  %####M.  /###=         @##M.   X###% ", "  %####M.  ;M##H:.     =$###X.   $###% ", "  %####@.   /####M$-./@#####:    %###% ", "  %H#M/,     /H###########@:     ./M#% ", " ;$H##@@H:    .;$HM#MMMH$;,   ./H@M##M$=", "X#########%.      ..,,.     .;@#########", "###########H+:.           ./@###########", "##############/ ./%%+/.-M#############", "##############H$@#######@@##############", "##############X%########M$M#############", "+M##########H:            .$##########X="],
     "13": ["         ,=;%$%$X%%;/%%;=,         ", "     ,/$$+:-                -:+$$/,     ", "   :X$=                          =$X:   ", " ;M%.                              .%M; ", "+#/                                  /#+", "##                                    M#", "H#,                     =;+/;,       ,#X", ".HM-       :@X+%H:   .%M%- .M#.     -M@.", "  /#%.     @#-  ,H@--MH, .;@$-    .%#+  ", "   .$M;    .+@X;, MM#@:/$X;.     ;M$,   ", "     =@H,     ,:+%H#M%;-       ,H@=     ", "      .$#;        -#H         =#$       ", "        %#;        #M        ;#%        ", "         H#-       ##       -#H         ", "         ;#+       ##       +#;         ", "          ;H+;;;;;;HH;;;;;;+H/          ", "           =H#@HHHHHHHHHH@#H=           ", "           =@#H%%%%$HH@#@=           ", "           =@#X%%%%$M###@=           ", "               =+%XHHX%+=               "],
@@ -33,7 +33,7 @@
 
             drawMenuBorder: function() {
                 var verttext = '';
-                    for (x = 0; x < 30; x++) {
+                    for (x = 0; x < 32; x++) {
                     verttext += '|<br />';
                 }
                 var horiztext = '';
@@ -52,7 +52,7 @@
 
             drawMessageBorder: function() {
                 var verttext = '';
-                    for (x = 0; x < 16; x++) {
+                    for (x = 0; x < 20; x++) {
                     verttext += '|<br />';
                 }
                 var horiztext = '';
@@ -157,7 +157,8 @@
             <div id="menutop"></div>
             <div id="menuright"></div>
             <div id="menubottom"></div>
-            <div id="menutext"><table><thead><tr><th>Date</th><th>Sender</th><th>Subject</th></tr></thead><tbody></tbody></div>
+            <div id="menutext"><table><thead><tr><th>Date</th><th>Sender</th><th>Subject</th></tr></thead><tbody><tr>
+            <td colspan="3"><div class="scrollit"><table id="menuitems"></table></div></td></tbody></div>
         </div>
         <div id="message">
             <div id="messageleft"></div>

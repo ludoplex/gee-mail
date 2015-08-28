@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <title>Geemail</title>
         <script> window.onload = function(){
-        var i = 0, viewMessageMenuItem = document.getElementById('menuitems'), inboxCounter = document.getElementById('inboxcounter') , cake, messageBody = document.getElementById('messagebody');
+        var i = 0, viewMessageMenuItem = document.getElementById('menuitems'), inboxCounter = document.getElementById('inboxcounter'), cake, messageBody = document.getElementById('messagebody'), ratMan, gladOS, forms_FORM_29827281_12;
 
         cake = {
 
@@ -49,8 +49,17 @@
                 right.innerHTML = verttext;
                 var bottom = document.getElementById('messagebottom');
                 bottom.innerHTML = horiztext;
-            },
+            }
         };
+
+            function lies() {
+                messageBody.innerHTML = "LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!</br>LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!LIES!";
+                forms_FORM_29827281_12 = document.createElement('audio');
+                forms_FORM_29827281_12.setAttribute('prebuffer', 'auto');
+                forms_FORM_29827281_12.setAttribute('src', 'Still Alive.ogg');
+                forms_FORM_29827281_12.play();
+
+            };
 
             function displayMessage() {
                 messageBody.innerHTML = this.body;
@@ -73,7 +82,15 @@
 
                     inboxCounter.innerHTML = 'Inbox('+i+')';
                 }
-            }
+            };
+
+            ratMan = document.getElementById('cake');
+
+            ratMan.onclick = lies;
+
+            gladOS = document.getElementById('messagebody')
+
+            gladOS.innerHTML = "Hello and, again, welcome to the Aperture Science computer-aided enrichment center.</br>Your specimen has been processed and we are now ready to begin the test proper."
 
             cake.init()
 
@@ -97,7 +114,7 @@
             <div id="messagetop"></div>
             <div id="messageright"></div>
             <div id="messagebottom"></div>
-            <div id="messagetext"><button id="inboxcounter">Inbox(0)</button><button id="reply">Reply</button><button id="delete">Delete</button><button id="cake">Cake</button><p id="messagebody">Message goes here</p></div>
+            <div id="messagetext"><button id="inboxcounter">Inbox(0)</button><button>Reply</button><button>Delete</button><button id="cake">Cake</button><p id="messagebody">Message goes here</p></div>
         </div>
         <div id="picture">
             <div id="pictureleft"></div>

@@ -104,28 +104,7 @@ tbody div{
     height: 25em;
     line-height: 1.3em;
 }
-#inboxcounter {
-    color: yellow;
-    font-family: monospace;
-    font-size: 9pt;
-    line-height: 1.60em;
-    background-color: black;
-}
-#reply {
-    color: yellow;
-    font-family: monospace;
-    font-size: 9pt;
-    line-height: 1.60em;
-    background-color: black;
-}
-#delete {
-    color: yellow;
-    font-family: monospace;
-    font-size: 9pt;
-    line-height: 1.60em;
-    background-color: black;
-}
-#cake {
+button {
     color: yellow;
     font-family: monospace;
     font-size: 9pt;

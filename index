@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <title>Geemail</title>
         <script> window.onload = function(){
-        var i = 0, viewMessageMenuItem = document.getElementById('menuitems'), inboxCounter = document.getElementById('inboxcounter') , cake, messageBody = document.getElementById('messagebody'), asciiart = {};
+        var i = 0, viewMessageMenuItem = document.getElementById('menuitems'), inboxCounter = document.getElementById('inboxcounter') , cake, messageBody = document.getElementById('messagebody');
 
         cake = {
 
@@ -69,8 +69,6 @@
 
                     viewMessageMenuItem.innerHTML+= '<tr><td>'+window.geemails[i].date+'</td><td>'+window.geemails[i].sender+'</td><td onclick="window.geemails['+i+'].displayMessage()">'+window.geemails[i].subject+'</td></tr>';
 
-                    //var buttonMessageMenuItem = document.getElementById()
-
                     ++i;
 
                     inboxCounter.innerHTML = 'Inbox('+i+')';
@@ -92,7 +90,7 @@
             <div id="menuright"></div>
             <div id="menubottom"></div>
             <div id="menutext"><table><thead><tr><th>Date</th><th>Sender</th><th>Subject</th></tr></thead><tbody><tr>
-            <td colspan="3"><div class="scrollit"><table id="menuitems"></table></div></td></tbody></div>
+            <td colspan="3"><div class="scrollbar"><table id="menuitems"></table></div></td></tbody></div>
         </div>
         <div id="message">
             <div id="messageleft"></div>
@@ -106,7 +104,28 @@
             <div id="picturetop"></div>
             <div id="pictureright"></div>
             <div id="picturebottom"></div>
-            <div id="picturetext"></div>
+            <div id="picturetext"><pre>
+              .,-:;//;:=,
+          . :H@@@MM@M#H/.,+%;,
+       ,/X+ +M@@M@MM%=,-%HMMM@X/,
+     -+@MM; $M@@MH+-,;XMMMM@MMMM@+-
+    ;@M@@M- XM@X;. -+XXXXXHHH@M@M#@/.
+  ,%MM@@MH ,@%=             .---=-=:=,.
+  =@#@@@MX.,                -%HX$$%%%:;
+ =-./@M@M$                   .;@MMMM@MM:
+ X@/ -$MM/                    . +MM@@@M$
+,@M@H: :@:                    . =X#@@@@-
+,@@@MMX, .                    /H- ;@M@M=
+.H@@@@M@+,                    %MM+..%#$.
+ /MMMM@MMH/.                  XM@MH; =;
+  /%+%$XHH@$=              , .H@@@@MX,
+   .=--------.           -%H.,@@@@@MX,
+   .%MM@@@HHHXX$$$%+- .:$MMX =M@@MM%.
+     =XMMM@MM@MM#H;,-+HMM@M+ /MMMX=
+       =%@M@M#@$-.=$@MM@@@M; %M%=
+         ,:+$+-,/H#MMMMMMM@= =,
+               =++%%%%+/:-.
+</pre></div>
         </div>
     </body>
 </html>
